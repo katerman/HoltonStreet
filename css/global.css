@@ -1,0 +1,138 @@
+/* Kevin Reynolds For HoltonStreet.com*/
+/*Red: #c50d09 */
+/*-----------------------------------*/
+
+body {
+	background-color: #000;
+}
+
+h1 {
+	color: #c50d09;
+}
+
+/*helper classes*/
+.white {/*change color to white*/
+	color: #fff;
+}
+
+.bottom {/*throw some margin on the bottom*/
+	margin-bottom: 15px;
+}
+
+.span-margin { /* put some margin in that span */
+	margin: 5px 5px 0 15px;
+	width: 95%;
+}
+
+/*Nav Bar*/
+.navbar {
+	margin-bottom: 15px;
+}
+
+
+/* Span 4 */
+.span4 .bottom {
+	margin: 10px 0 5px;
+}
+
+.span4 {
+	margin-top: 15px;
+	-webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #fff;
+    padding-bottom:10px;
+}
+
+.span4 h2, .span4 h3 {
+	color: #c50d09;
+}
+
+/* Span 6, 8 , 12 defaults*/
+.span6, .span8{
+    padding-bottom:10px;
+	margin-top: 15px;
+	-webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: #fff;
+
+}
+
+/*about*/
+#about {
+	word-break: break-word;
+}
+
+/*Insurance*/
+#insurance {
+	word-break: break-word;
+}
+
+/*Testimonials */
+#testimonials .span6 {
+	/*
+-webkit-box-shadow:  1px 1px 1px 1px rgba(00, 00, 00, 0.5);
+	box-shadow:  1px 1px 1px 1px rgba(00, 00, 00, 0.5);
+*/
+}
+
+#testimonials .span12, #wtPatterns .span12, #portal2 .span12 {
+    padding-bottom:10px;
+	-webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: #fff;
+}
+
+/*Portal2* - Testing purposes*/
+#portal2 .span3{
+    padding: 0 0 10px 0px;
+	-webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+/*Hero Unit*/
+.hero-unit {
+	margin-bottom: 0px;
+/* 	background-image: url(../img/herobg.jpg); */
+}
+
+
+/************* MEDIA QUERYS******************/
+/* if screen is 1199 to 768 width use this*/
+@media (max-width: 1199px) and (min-width: 768px) {
+
+	#home .span4 {
+		min-height: 391px;
+	}
+}
+
+/* if screen less than 480 use this*/
+@media (max-width: 480px) {
+
+	#login {/*hide login button*/
+		display: none;
+	}
+	.span4 {
+		padding-right: 50px;
+	}
+	.span8 {
+		padding-right: 50px;
+		padding-top: 10px;
+	}
+}
+
+@media (max-width: 765px) {
+
+	#home .span4 {
+		padding-right: 50px;
+	}
+}
+
+/* if screen is min 1199 width use this*/
+@media (min-width: 1199px) {
+
+	#home .span4 {
+		min-height: 351px;
+	}
+}
+
+
