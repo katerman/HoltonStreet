@@ -39,15 +39,17 @@ else {
 	<div class="container"><!--Start of container-->
 	
 		<div class="row">
-			<div class="span12">
-				<h1><a href="index.php"><img alt="Holton Street Autobody" src="img/logo.gif"></a></h1>
-				<a id="login" class="btn btn-info btn-small bottom pull-right" href="portal.php">
+			<div class="span12"> 
+				<h1><a href="index.php"><img alt="Holton Street Autobody" src="img/logo.gif"></a>
+				<a id="login" class="btn btn-info btn-small hidden" href="portal.php">
 					Login
-				</a>
+				</a>				
+				
+				</h1>
 			</div>
 		</div>
 			
-			<div class="navbar"><!--Start of Navbar-->
+			<div class="navbar navbar-inverse"><!--Start of Navbar-->
 				<div class="navbar-inner">
 					<div class="container">
 			 
@@ -121,7 +123,7 @@ else {
 						
 						<div class="control-group">
 							<div class="controls">
-								<button name="submit" type="submit" class="btn">Sign in</button>
+								<button name="submit" type="submit" class="btn btn-info">Sign in</button>
 							</div>
 						</div>
 					</form>
@@ -133,7 +135,7 @@ else {
 					<p>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 					</p>
-					
+
 				</span>
 			</div><!--end span6-->
 		</div><!--end Rows-->
@@ -144,9 +146,9 @@ else {
 		</a>
 		</div>
 	</div><!--End of container-->
+
 	
-	
-		
+		</
 		<!---- JS ------->
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>

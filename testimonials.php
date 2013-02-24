@@ -15,15 +15,17 @@
 	<div class="container"><!--Start of container-->
 	
 		<div class="row">
-			<div class="span12">
-				<h1><a href="index.php"><img alt="Holton Street Autobody" src="img/logo.gif"></a></h1>
-				<a id="login" class="btn btn-info btn-small bottom pull-right" href="portal.php">
+			<div class="span12"> 
+				<h1><a href="index.php"><img alt="Holton Street Autobody" src="img/logo.gif"></a>
+				<a id="login" class="btn btn-info btn-small" href="portal.php">
 					Login
-				</a>
+				</a>				
+				
+				</h1>
 			</div>
 		</div>
 			
-			<div class="navbar"><!--Start of Navbar-->
+			<div class="navbar navbar-inverse"><!--Start of Navbar-->
 				<div class="navbar-inner">
 					<div class="container">
 			 

@@ -15,15 +15,17 @@
 	<div class="container"><!--Start of container-->
 	
 		<div class="row">
-			<div class="span12">
-				<h1><a href="index.php"><img alt="Holton Street Autobody" src="img/logo.gif"></a></h1>
-				<a id="login" class="btn btn-info btn-small bottom pull-right" href="portal.php">
+			<div class="span12"> 
+				<h1><a href="index.php"><img alt="Holton Street Autobody" src="img/logo.gif"></a>
+				<a id="login" class="btn btn-info btn-small" href="portal.php">
 					Login
-				</a>
+				</a>				
+				
+				</h1>
 			</div>
 		</div>
 			
-			<div class="navbar"><!--Start of Navbar-->
+			<div class="navbar navbar-inverse"><!--Start of Navbar-->
 				<div class="navbar-inner">
 					<div class="container">
 			 
@@ -73,7 +75,7 @@
 		<div id="home" class="row">
 			<div class="span4"><!--1st Span 4-->
 				<span class="span-margin">
-					<h2> Holton Street </h2>
+					<h3> Holton Street </h3>
 					<p>We minimize our customer's inconvenience after a collision by assisting with any repair related details. Whether you own a Car, Truck, or SUV our experienced collision center can make it look new again.
 					</p>
 					<p>
@@ -114,7 +116,7 @@
        
 	        <div class="span4">
 	        	<span class="span-margin">
-					<h3> Water Transfer Printing</h2>
+					<h3> Water Transfer Printing</h3>
 					<p>We offer the latest technology in Water Transfer Printing to customize your Car, Motorcycle, Boat, Firearms and more.
 					</p>
 					<p>
