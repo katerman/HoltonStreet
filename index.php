@@ -1,7 +1,9 @@
+<?php include_once("analyticstracking.php") ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Holton Street</title>
+		<link rel="icon" type="image/png" href="img/favicon.ico">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			
 		<!---- CSS ------->
@@ -12,20 +14,16 @@
 	</head>
 	<body>
 	
-	<div class="container"><!--Start of container-->
+		<div class="container"><!--Start of container-->
 	
-		<div class="row">
-			<div class="span12"> 
-				<h1><a href="index.php"><img alt="Holton Street Autobody" src="img/logo.gif"></a>
-				<a id="login" class="btn btn-info btn-small" href="portal.php">
-					Login
-				</a>				
-				
-				</h1>
-			</div>
-		</div>
-			
 			<div class="navbar navbar-inverse"><!--Start of Navbar-->
+			
+				<h1>
+					<a href="index.php"><img alt="Holton Street Autobody" src="img/logo.gif" class="header">
+					</a>			
+				</h1>
+
+				
 				<div class="navbar-inner">
 					<div class="container">
 			 
@@ -38,13 +36,17 @@
 			 
 							<!-- Everything you want hidden at 940px or less, place within here -->
 						<div class="nav-collapse collapse">
+							<a id="login" class="btn btn-info btn-small pull-right" href="portal/">
+								Login
+							</a>	
 							<!-- .nav, .navbar-search, .navbar-form, etc -->
 							<ul class="nav">
 								<li class="active"><a href="#">Home</a></li>
 								<li><a href="about.php">About</a></li>
 								<li><a href="insurance.php">Insurance</a></li>
 								<li><a href="testimonials.php">Testimonials</a></li>
-								<li class="dropdown">
+								
+								<li class="dropdown navsplit">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 										Water Transfer Process
 										<b class="caret"></b>
@@ -55,9 +57,11 @@
 										<li><a href="wtPatterns.php">Patterns</a></li>
 									</ul>
 								</li>
-								<li><a href="portal.php">Portal</a></li>
-					
+								<li><a href="portal/">Portal</a></li>
+
+								
 							</ul>
+							
 						</div>
 			 
 					</div>
@@ -68,7 +72,7 @@
 			<div class="hero-unit"><!--Start of Hero-->
 				<h1>The Collision Cure</h1>
 				<p>
-					Providing exceptional customer service is our goal. 
+					Providing exceptional customer service. 
 				</p>
 			</div><!--End of Hero-->
 		
@@ -141,9 +145,12 @@
 		</div><!--end Rows-->
 		
 		<div class="navbar navbar-static-bottom">
-		<a href="http://www.refinedDesigns.net">
-			Refined Designs	&copy; <? echo date("Y"); ?> <!-- Yay php auto updates my year-->
-		</a>
+			<a href="http://www.refinedDesigns.net" class="pull-left">
+				Refined Designs	&copy; <? echo date("Y"); ?> <!-- Yay php auto updates my year-->
+			</a>
+					
+			<div id="fb-root"></div>
+			<div href="https://www.facebook.com/pages/Holton-Street-Auto-Body/478554762209578?fref=ts" class="fb-like pull-right" data-href="https://www.facebook.com/pages/Holton-Street-Auto-Body/478554762209578" data-send="false" data-layout="button_count" data-width="250" data-show-faces="true" data-font="arial"></div>
 		</div>
 	</div><!--End of container-->
 	
@@ -153,6 +160,7 @@
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>	
+		<script type="text/javascript" src="js/jquery.center.js"></script>	
 		<script> 
 		//script will detect screen size then change buttons accordingly good for mobile/ipad
 		//made by Kevin Reynolds at http://www.RefinedDesigns.net
@@ -160,21 +168,53 @@
 			
 			var btn = $('a.btn-primary');//target btn(s)
 			var size = 980; //because im using a static # i can just use a var
+				
+			if ( $(window).width() < size) { //if smaller than 980 px make buttons large
+					btn.removeClass('btn-small');
+					btn.addClass('btn-large');
+			}	
 					
 			$(window).resize(function() {//check for window size using resize
 			
-				if ( $(window).width() < size) { //if smaller than 767 px make buttons large
+				if ( $(window).width() < size) { //if smaller than 980 px make buttons large
 					btn.removeClass('btn-small');
 					btn.addClass('btn-large');
 					
 					
 				}
-				if ($(window).width() > size){ // if larger than 767 make buttons small
+				if ($(window).width() > size){ // if larger than 980 make buttons small
 					btn.removeClass('btn-large');
 					btn.addClass('btn-small');
 	   			}	
+	   			
    			});//end resize
-		});//end script
+   			
+   		});//end script	
 		</script>
+		
+		<script>
+		// Controller for jquery.center.js 
+			$(function () {
+				
+
+				$(".navbar h1").center({
+					vertical: false // only hoz
+				});
+			
+	   		});//end script	
+		</script>
+		
+
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+		</script>
+		
+
+		
 	</body>
 </html>

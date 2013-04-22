@@ -1,7 +1,11 @@
+<?php include_once("analyticstracking.php") ?>
+<?php include_once("db.php"); ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Holton Street</title>
+		<link rel="icon" type="image/png" href="img/favicon.ico">		
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			
 		<!---- CSS ------->
@@ -12,20 +16,15 @@
 	</head>
 	<body>
 	
-	<div class="container"><!--Start of container-->
+		<div class="container"><!--Start of container-->
 	
-		<div class="row">
-			<div class="span12"> 
-				<h1><a href="index.php"><img alt="Holton Street Autobody" src="img/logo.gif"></a>
-				<a id="login" class="btn btn-info btn-small" href="portal.php">
-					Login
-				</a>				
-				
-				</h1>
-			</div>
-		</div>
-			
 			<div class="navbar navbar-inverse"><!--Start of Navbar-->
+			
+				<h1>
+					<a href="index.php"><img alt="Holton Street Autobody" src="img/logo.gif" class="header">
+					</a>			
+				</h1>
+
 				<div class="navbar-inner">
 					<div class="container">
 			 
@@ -38,13 +37,16 @@
 			 
 							<!-- Everything you want hidden at 940px or less, place within here -->
 						<div class="nav-collapse collapse">
+							<a id="login" class="btn btn-info btn-small pull-right" href="portal/">
+								Login
+							</a>	
 							<!-- .nav, .navbar-search, .navbar-form, etc -->
 							<ul class="nav">
 								<li><a href="index.php">Home</a></li>
 								<li><a href="about.php">About</a></li>
 								<li><a href="insurance.php">Insurance</a></li>
 								<li><a href="testimonials.php">Testimonials</a></li>
-								<li class="dropdown active">
+								<li class="dropdown active navsplit">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 										Water Transfer Process
 										<b class="caret"></b>
@@ -55,7 +57,7 @@
 										<li class="active"><a href="wtPatterns.php">Patterns</a></li>
 									</ul>
 								</li>
-								<li><a href="portal.php">Portal</a></li>
+								<li><a href="portal/">Portal</a></li>
 					
 							</ul>
 						</div>
@@ -64,12 +66,28 @@
 				</div>
 			</div><!--End of Navbar-->
 		
+ 
+			<?php 
+				$sql_picturePatterns = $db->query('SELECT id, text,picture,type FROM pictures_Patterns');
+				
+				try {
+					if ($sql_picturePatterns->execute()) {
+						$pic_PatternsResults = $sql_picturePatterns->fetchAll(PDO::FETCH_OBJ);
+					}
+				}
+					catch(PDOException $e){
+						echo "Query Failed - content";
+				}
+				
+				
+			?>
 	
 		
 		<div id="wtPatterns" class="row">
 			<div class="span12"><!--span8-->
-				<span class="span-margin">
-					<h2> Water Transfer Process</h2>
+
+				<h2> Water Transfer Process</h2>
+
 					<div id="tabs">
 						<ul>
 							<li><a href="#tabs-1">Camouflage</a></li>
@@ -78,99 +96,94 @@
 							<li><a href="#tabs-4">Metal</a></li>
 							<li><a href="#tabs-5">Stone</a></li>
 							<li><a href="#tabs-6">Wood Grain</a></li>
+							<li><a href="#tabs-7">Skulls</a></li>
 						</ul>
 						
-						<div id="tabs-1">
-							<img src="http://lorempixel.com/150/150/nature/1/"/>
-							<img src="http://lorempixel.com/150/150/nature/1/"/>
-							<img src="http://lorempixel.com/150/150/nature/1/"/>
-							<img src="http://lorempixel.com/150/150/nature/1/"/>
-							<img src="http://lorempixel.com/150/150/nature/1/"/>
-							<img src="http://lorempixel.com/150/150/nature/1/"/>
-							<img src="http://lorempixel.com/150/150/nature/1/"/>
-							<img src="http://lorempixel.com/150/150/nature/1/"/>	
-							<img src="http://lorempixel.com/150/150/nature/1/"/>
-							<img src="http://lorempixel.com/150/150/nature/1/"/>
-							<img src="http://lorempixel.com/150/150/nature/1/"/>
-							<img src="http://lorempixel.com/150/150/nature/1/"/>																																		
+						<div id="tabs-1" class="clearfix">
+							<ul class="patterns">
+									<?php foreach($pic_PatternsResults as $PPentry): ?>
+									<?php
+										if($PPentry->type == 1){
+											echo '<li class="pull-left"><img src="'.$PPentry->picture .'" alt="'.$PPentry->text .'"><p>'.$PPentry->text.'</p></li>'
+										;}
+										
+									?>
+									<?php endforeach; ?>																							</ul>											
 						</div>
 						
-						<div id="tabs-2">
-							<img src="http://lorempixel.com/150/150/nature/2/"/>
-							<img src="http://lorempixel.com/150/150/nature/2/"/>
-							<img src="http://lorempixel.com/150/150/nature/2/"/>
-							<img src="http://lorempixel.com/150/150/nature/2/"/>
-							<img src="http://lorempixel.com/150/150/nature/2/"/>
-							<img src="http://lorempixel.com/150/150/nature/2/"/>
-							<img src="http://lorempixel.com/150/150/nature/2/"/>
-							<img src="http://lorempixel.com/150/150/nature/2/"/>	
-							<img src="http://lorempixel.com/150/150/nature/2/"/>
-							<img src="http://lorempixel.com/150/150/nature/2/"/>
-							<img src="http://lorempixel.com/150/150/nature/2/"/>
-							<img src="http://lorempixel.com/150/150/nature/2/"/>	
+						<div id="tabs-2" class="clearfix">
+							<ul class="patterns">
+									<?php foreach($pic_PatternsResults as $PPentry): ?>
+									<?php
+										if($PPentry->type == 2){
+											echo '<li class="pull-left"><img src="'.$PPentry->picture .'" alt="'.$PPentry->text .'"><p>'.$PPentry->text.'</p></li>'
+										;}
+										
+									?>
+									<?php endforeach; ?>																							</ul>
 						</div>
 						
-						<div id="tabs-3">
-							<img src="http://lorempixel.com/150/150/nature/3/"/>
-							<img src="http://lorempixel.com/150/150/nature/3/"/>
-							<img src="http://lorempixel.com/150/150/nature/3/"/>
-							<img src="http://lorempixel.com/150/150/nature/3/"/>
-							<img src="http://lorempixel.com/150/150/nature/3/"/>
-							<img src="http://lorempixel.com/150/150/nature/3/"/>
-							<img src="http://lorempixel.com/150/150/nature/3/"/>
-							<img src="http://lorempixel.com/150/150/nature/3/"/>	
-							<img src="http://lorempixel.com/150/150/nature/3/"/>
-							<img src="http://lorempixel.com/150/150/nature/3/"/>
-							<img src="http://lorempixel.com/150/150/nature/3/"/>
-							<img src="http://lorempixel.com/150/150/nature/3/"/>	
+						<div id="tabs-3" class="clearfix">
+							<ul class="patterns">
+									<?php foreach($pic_PatternsResults as $PPentry): ?>
+									<?php
+										if($PPentry->type == 3){
+											echo '<li class="pull-left"><img src="'.$PPentry->picture .'" alt="'.$PPentry->text .'"><p>'.$PPentry->text.'</p></li>'
+										;}
+										
+									?>
+									<?php endforeach; ?>																							</ul>
 						</div>
 
-						<div id="tabs-4">
-							<img src="http://lorempixel.com/150/150/nature/4/"/>
-							<img src="http://lorempixel.com/150/150/nature/4/"/>
-							<img src="http://lorempixel.com/150/150/nature/4/"/>
-							<img src="http://lorempixel.com/150/150/nature/4/"/>
-							<img src="http://lorempixel.com/150/150/nature/4/"/>
-							<img src="http://lorempixel.com/150/150/nature/4/"/>
-							<img src="http://lorempixel.com/150/150/nature/4/"/>
-							<img src="http://lorempixel.com/150/150/nature/4/"/>	
-							<img src="http://lorempixel.com/150/150/nature/4/"/>
-							<img src="http://lorempixel.com/150/150/nature/4/"/>
-							<img src="http://lorempixel.com/150/150/nature/4/"/>
-							<img src="http://lorempixel.com/150/150/nature/4/"/>	
+						<div id="tabs-4" class="clearfix">
+							<ul class="patterns">
+									<?php foreach($pic_PatternsResults as $PPentry): ?>
+									<?php
+										if($PPentry->type == 4){
+											echo '<li class="pull-left"><img src="'.$PPentry->picture .'" alt="'.$PPentry->text .'"><p>'.$PPentry->text.'</p></li>'
+										;}
+										
+									?>
+									<?php endforeach; ?>																							</ul>
 						</div>
 						
-						<div id="tabs-5">
-							<img src="http://lorempixel.com/150/150/nature/5/"/>
-							<img src="http://lorempixel.com/150/150/nature/5/"/>
-							<img src="http://lorempixel.com/150/150/nature/5/"/>
-							<img src="http://lorempixel.com/150/150/nature/5/"/>
-							<img src="http://lorempixel.com/150/150/nature/5/"/>
-							<img src="http://lorempixel.com/150/150/nature/5/"/>
-							<img src="http://lorempixel.com/150/150/nature/5/"/>
-							<img src="http://lorempixel.com/150/150/nature/5/"/>	
-							<img src="http://lorempixel.com/150/150/nature/5/"/>
-							<img src="http://lorempixel.com/150/150/nature/5/"/>
-							<img src="http://lorempixel.com/150/150/nature/5/"/>
-							<img src="http://lorempixel.com/150/150/nature/5/"/>	
+						<div id="tabs-5" class="clearfix">
+							<ul class="patterns">
+									<?php foreach($pic_PatternsResults as $PPentry): ?>
+									<?php
+										if($PPentry->type == 5){
+											echo '<li class="pull-left"><img src="'.$PPentry->picture .'" alt="'.$PPentry->text .'"><p>'.$PPentry->text.'</p></li>'
+										;}
+										
+									?>
+									<?php endforeach; ?>																							</ul>	
 						</div>
 						
-						<div id="tabs-6">
-							<img src="http://lorempixel.com/150/150/nature/10/"/>
-							<img src="http://lorempixel.com/150/150/nature/10/"/>
-							<img src="http://lorempixel.com/150/150/nature/10/"/>
-							<img src="http://lorempixel.com/150/150/nature/10/"/>
-							<img src="http://lorempixel.com/150/150/nature/10/"/>
-							<img src="http://lorempixel.com/150/150/nature/10/"/>
-							<img src="http://lorempixel.com/150/150/nature/10/"/>
-							<img src="http://lorempixel.com/150/150/nature/10/"/>	
-							<img src="http://lorempixel.com/150/150/nature/10/"/>
-							<img src="http://lorempixel.com/150/150/nature/10/"/>
-							<img src="http://lorempixel.com/150/150/nature/10/"/>
-							<img src="http://lorempixel.com/150/150/nature/10/"/>	
+						<div id="tabs-6" class="clearfix">
+							<ul class="patterns">
+									<?php foreach($pic_PatternsResults as $PPentry): ?>
+									<?php
+										if($PPentry->type == 6){
+											echo '<li class="pull-left"><img src="'.$PPentry->picture .'" alt="'.$PPentry->text .'"><p>'.$PPentry->text.'</p></li>'
+										;}
+										
+									?>
+									<?php endforeach; ?>																							</ul>
 						</div>
-					</div>
-				</span>
+						
+						<div id="tabs-7" class="clearfix">
+							<ul class="patterns">
+									<?php foreach($pic_PatternsResults as $PPentry): ?>
+									<?php
+										if($PPentry->type == 7){
+											echo '<li class="pull-left"><img src="'.$PPentry->picture .'" alt="'.$PPentry->text .'"><p>'.$PPentry->text.'</p></li>'
+										;}
+										
+									?>
+									<?php endforeach; ?>																							</ul>						
+						</div>
+						
+					</div><!--end tabs-->
 			</div><!--end span4-->
 		</div><!--end Rows-->
 		
@@ -188,7 +201,21 @@
 		<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>		
 		<script type="text/javascript" src="js/bootstrap-lightbox.min.js"></script>
+		<script type="text/javascript" src="js/jquery.center.js"></script>	
 		<script>
+		// Controller for jquery.center.js 
+			$(function () {
+				
+
+				$(".navbar h1").center({
+					vertical: false // only hoz
+				});
+			
+	   		});//end script	
+		</script>
+		
+		<script>
+		//lets make some tabs
 			$(function () {
 				$('#tabs').tabs();
 			});

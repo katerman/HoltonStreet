@@ -2,9 +2,11 @@
 /*Red: #c50d09  Blue: #005195*/
 /*-----------------------------------*/
 
+
 html {
 
 	min-height: 100%;
+	outline: none;
 }
 
 body {
@@ -26,12 +28,18 @@ h1 {
 	color: #c50d09;
 }
 
+h2:first-child {
+	margin-top: 0;
+}
+ 
 h2 {
+	margin-top: 25px;
 	color: #c50d09;
 }
 
 h3 {
 	color: #c50d09;
+	margin-top: 0;
 }
 
 /*helper classes*/
@@ -46,11 +54,46 @@ h3 {
 .span-margin { /* put some margin in that span */
 	margin: 5px 5px 0 15px;
 	width: 95%;
+}	
+
+.hide{
+	display:none ;
 }
+
+/* Header / Logo */
+
+.header {
+	display: block;   
+	margin-left: auto;   
+	margin-right: auto;
+	position: relative;
+	top: -95px;	
+}
+
+.navbar h1 a{
+	display:block;
+	height:0;
+}
+
+
+.navbar h1 {
+	height: 70px;
+	width: 300px;
+}
+
+
 
 /*Nav Bar*/
 .navbar {
-	margin-bottom: 15px;
+	margin-bottom: 0;
+	z-index: 1000;
+	margin-top: 90px;
+}
+
+.btn-navbar {
+	z-index: 1001;
+	margin-bottom: 5px;
+	position: relative;
 }
 
 
@@ -60,6 +103,43 @@ h3 {
 }
 
 .span4 {
+	margin-top: 15px;
+	-webkit-border-radius: 10px;
+    border-radius: 10px;
+    padding-bottom:10px;
+    color: #887;
+
+}
+
+.span4 h2, .span4 h3 {
+	color: #c50d09;
+}
+
+/* Span 6, 8 , 12 defaults*/
+.span6, .span8{
+    padding-bottom:10px;
+	margin-top: 15px;
+	-webkit-border-radius: 5px;
+    border-radius: 5px;
+    color: #887;
+    
+
+
+}
+
+/* Span 12*/
+
+.span12 h1 { 
+	width: 100%;
+
+}
+
+
+/* Home */
+
+#home .span4 {
+
+	position: relative;
 	margin-top: 15px;
 	-webkit-border-radius: 10px;
     border-radius: 10px;
@@ -76,91 +156,125 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 
 }
 
-.span4 h2, .span4 h3 {
-	color: #c50d09;
-}
-
-/* Span 6, 8 , 12 defaults*/
-.span6, .span8{
-    padding-bottom:10px;
-	margin-top: 15px;
-	-webkit-border-radius: 5px;
-    border-radius: 5px;
-    color: #887;
-    
-    background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* IE10+ */
-background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
-
-
-}
-
-/* Span 12*/
-
-.span12 h1 { 
-	width: 100%;
-	position: relative;
-
-}
-
-/* Login */
-#login {
-	right: 0px;
-	bottom: 0px;
-	position: absolute;
-}
-
-
-/* Home */
-
-#home .span4 {
-	position: relative;
-}
-
 
 /*about*/
-#about {
-	word-break: break-word;
+#about .span8 p, #about .span8 td{
+
+}
+
+#about td{
+	color:#887;
 }
 
 /*Insurance*/
 #insurance .span8 h3{
 	color: #005195;
+	margin: -15px 0 0 0;
+	padding: 0;
+}
+
+#insurance ol > li {
+	margin-bottom: 15px;
 }
 
 /*Testimonials */
 #testimonials .span6 {
-	-webkit-box-shadow:  1px 1px 1px 1px rgba(33, 55, 55, 0.5);
-	box-shadow:  1px 1px 1px 1px rgba(33, 33,33, 0.5);
+	min-height: 82px;
+}
+
+#testimonials h2:first-child {
+	margin-top: 15px;
 }
 
 #testimonials h4 {
 	color: #005195;
 }
 
-#testimonials .span12, #wtPatterns .span12, #portal2 .span12 {
+#testimonials .span6 {
     padding-bottom:10px;
 	-webkit-border-radius: 5px;
     border-radius: 5px;
     color: #887;
-    
+    margin-left: 0;
+    max-width: 555px;  
 }
 
-/*Portal2* - Testing purposes*/
+#testimonials img.ShadowPeople { 
+	height: 81px;
+	width: 81px;
+	-webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #fff;	
+    margin: 5px;
+	
+}
+
+#testimonials {
+	margin-left: 0;
+}
+
+
+article {
+	margin-bottom: 25px;
+}
+
+/* WtABout */
+
+#wtAbout .span4 ul {
+	margin: 0;
+}
+
+#wtAbout .span4 li {
+	list-style-type: none;
+	margin: 0 5px 5px 0;
+}
+
+
+/* Wt Pattersn and portal 2 */
+#wtPatterns .span12, #portal2 .span12
+{
+    padding-bottom:10px;
+	-webkit-border-radius: 5px;
+    border-radius: 5px;
+    color: #887;
+}
+
+#wtPatterns .span12 h2 {
+	margin: 5px 5px 0 15px;
+
+}
+
+#wtPatterns .span12 .patterns li {
+	margin-left: 5px;
+	min-height:260px;
+	
+}
+
+#wtPatterns .span12 .patterns p {
+	max-width: 200px;
+}
+
+
+
+/*Portal2*/
 #portal2 .span3{
     padding: 0 0 10px 0px;
 	-webkit-border-radius: 5px;
     border-radius: 5px;
 }
 
+#portal-pics {
+	display: block;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
 /*Hero Unit*/
 .hero-unit {
+	margin-top: 15px;
 	margin-bottom: 0px;
 	background-image: url(../img/herobg.jpg);
+	background-color: #242424;
 }
 
 .hero-unit h1 {
@@ -179,7 +293,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 }
 
 
+/*Footer */
+.navbar-static-bottom{
+	margin-top: 15px;
+	margin-bottom: 50px;
+	clear:both;
+}
 
+/* tabs */
+#tabs {
+	margin-top: 5px;
+	position: relative;
+	z-index: 100;
+}
+
+#lightbox {
+	position: absolute;
+	top:0;
+}
+
+/*****/
+.control-label {
+	margin: 0px !important;
+	padding: 0px !important;
+}
 
 /************* MEDIA QUERYS******************/
 /* if screen is 1199 to 768 width use this*/
@@ -193,9 +330,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 /* if screen less than 480 use this*/
 @media (max-width: 480px) {
 
-	#login {/*hide login button*/
-		display: none;
-	}
 	.span4 {
 		padding-right: 50px;
 	}
@@ -211,28 +345,52 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	
 	.hero-unit h1 {
 		margin: 0;
+		font-size: 45px;
 	}
 	
 	.hero-unit p {
-		font-size: 18px;
+		font-size: 17px;
+	}
+		
+}
+
+@media (max-width: 768px) {
+
+	#login {/*hide login button*/
+		display: none;
+	}
+	
+	a.btn.btn-navbar {
+		padding: 15px;
+	}
+	
+
+}
+
+
+@media (min-width: 769px){
+
+	#testimonials .span6 + .span6 {
+		margin-left: 15px;
 	}
 }
 
-@media (max-width: 765px) {
-
-	#home .span4 {
-		padding-right: 50px;
-	}
-}
-
-/* if screen is min 1199 width use this*/
-@media (min-width: 1199px) {
+/* Large desktop */
+@media (min-width: 1200px) {
 
 	#home .span4 {
 		min-height: 355px;
 	}
 	
+	#home .span4:first-child {
+		margin-left: 30px;
+	}
 	
+
+	.navsplit{
+		margin-left: 450px !important;
+	}
+
 }
 
 @media (min-width: 980px) {
@@ -242,10 +400,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 	 	background-repeat: no-repeat;
  	}
 
-	.span4 a.bottom {
-	bottom: 20px;
-	position: absolute;
+	.span4 a.bottom { /*Buttons on homepage*/
+		bottom: 20px;
+		position: absolute;
+	}
+	
+	#home .span4{ /*divs on homepage*/
+		padding-right: 10px;
+		margin-left: 10px;
+	}	
+	
+	.navsplit {
+		margin-left: 200px;
+	}
+	
+
 }
- 	
-}
+
 

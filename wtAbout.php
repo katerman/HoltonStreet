@@ -1,7 +1,11 @@
-w<!DOCTYPE html>
+<?php include_once("analyticstracking.php") ?>
+<?php include_once("db.php"); ?>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Holton Street</title>
+		<link rel="icon" type="image/png" href="img/favicon.ico">		
+		
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			
 		<!---- CSS ------->
@@ -9,23 +13,19 @@ w<!DOCTYPE html>
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/dark-hive/jquery-ui.css" type="text/css" media="screen">
 		<link rel="stylesheet" href="css/global.css" type="text/css" media="screen">	
 		<link rel="stylesheet" href="css/bootstrap-lightbox.min.css" type="text/css" media="screen">
+		<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css">
 	</head>
 	<body>
 	
-	<div class="container"><!--Start of container-->
+		<div class="container"><!--Start of container-->
 	
-		<div class="row">
-			<div class="span12"> 
-				<h1><a href="index.php"><img alt="Holton Street Autobody" src="img/logo.gif"></a>
-				<a id="login" class="btn btn-info btn-small" href="portal.php">
-					Login
-				</a>				
-				
-				</h1>
-			</div>
-		</div>
-			
 			<div class="navbar navbar-inverse"><!--Start of Navbar-->
+			
+				<h1>
+					<a href="index.php"><img alt="Holton Street Autobody" src="img/logo.gif" class="header">
+					</a>			
+				</h1>
+
 				<div class="navbar-inner">
 					<div class="container">
 			 
@@ -38,13 +38,16 @@ w<!DOCTYPE html>
 			 
 							<!-- Everything you want hidden at 940px or less, place within here -->
 						<div class="nav-collapse collapse">
+							<a id="login" class="btn btn-info btn-small pull-right" href="portal/">
+								Login
+							</a>	
 							<!-- .nav, .navbar-search, .navbar-form, etc -->
 							<ul class="nav">
 								<li><a href="index.php">Home</a></li>
 								<li><a href="about.php">About</a></li>
 								<li><a href="insurance.php">Insurance</a></li>
 								<li><a href="testimonials.php">Testimonials</a></li>
-								<li class="dropdown active">
+								<li class="dropdown active navsplit">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 										Water Transfer Process
 										<b class="caret"></b>
@@ -55,7 +58,7 @@ w<!DOCTYPE html>
 										<li><a href="wtPatterns.php">Patterns</a></li>
 									</ul>
 								</li>
-								<li><a href="portal.php">Portal</a></li>
+								<li><a href="portal/">Portal</a></li>
 					
 							</ul>
 						</div>
@@ -69,109 +72,64 @@ w<!DOCTYPE html>
 		<div id="wtAbout" class="row">
 			<div class="span8"><!--span8-->
 				<span class="span-margin">
-					<h2> Water Transfer Process</h2>
-					<p>
-						Water Transfer Printing (also known as water immersion printing, hydrograghic printing, hydro dipping, hydro imaging and fluid imaging) is a 3D printing process where elaborate graphics like Camouflage, Carbon Fiber, Metal, Wood Grain, Stone and Geometrical designs are applied to a product surface.
-					</p>
+									<?php 
+					//content
+					$sqlAbout = $db->query('SELECT id, text FROM content');
 					
-					<p>
-						The Water Transfer Printing process is used to customize items that range from entire ATV's, Motorcycles, Automotive and Boating Trim to smaller items like Guitars, Helmets, Rifles, Guns, Bows and other Hunting Equipment. Patterns can be applied to all types of surfaces including plastic, fiberglass, wood, ceramics, and metal.
-					</p>
-					
-					<p>
-						The process utilizes a water-soluble film that contains the printed patterns. The film dissolves in the water and leaves the ink on the surface. In the typical process, the item to be printed is first coated with a primer or an adhesion promoter. After this dries, a base-coat paint is applied which controls the hue of the pattern. 
-					</p>
-					
-					<p>
-						After the base-coat is applied, the item is ready for application of the pattern. The film is activated and the item is then dipped into the water and the ink wraps around it. It is then washed and painted with a clear topcoat.
-					</p>
-					
-					<p>
-						Water Transfer Printing is durable. Many items customized spend the majority of their lives in exposure to the elements, such as boat instrument panels, automotive and motorcycle parts and accessories. The clear coat we use is automotive grade, designed to withstand weather and time.
-					</p>
-					
-					<p>
-						We encourage you to stop in and browse through our catalog of nearly 300 patterns and discuss your project with us.
-					</p>
+					try {
+						if ($sqlAbout->execute()) {
+							$Aboutresults = $sqlAbout->fetchAll(PDO::FETCH_OBJ);
+						}
+					}
+						catch(PDOException $e){
+							echo "Query Failed - content";
+					}
+					?>
+						<?php foreach($Aboutresults as $Aentry): ?>	
+							<?php if ($Aentry->id == 7){
+							echo (
+								'<td>'
+								 .$Aentry->text
+								 .'</td>'
+							);
+							} 
+								
+								
+							?>
+					<?php endforeach; ?>
 				</span>					
 			</div><!--end span8-->
 			
 			<div class="span4"><!--span8-->
 				<span class="span-margin">
-					<h3>Pictures</h3>
-				
-					<table>
-						<caption class="text-left"><b>Examples of water transfer process:</b></caption>
-						<tbody>
-							<tr>
-								<td><!--open 1 TD-->
-									<a data-toggle="lightbox" href="#lightbox"><img src="http://lorempixel.com/150/150/"/></a>
-									
-									<div id="lightbox" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">												
-										<div class='lightbox-header'>
-											<button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
-										</div>
-										
-										<div class='lightbox-content'>
-											<img src="img/test.jpg">
-											<div class="lightbox-caption"><p>Test Image</p></div>
-										</div>
-									</div>
-								</td><!--close 1 TD-->
-								
-								<td><!--open 2 TD-->
-									<a data-toggle="lightbox" href="#lightbox"><img src="http://lorempixel.com/150/150/"/></a>
-									
-									<div id="lightbox" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">												
-										<div class='lightbox-header'>
-											<button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
-										</div>
-										
-										<div class='lightbox-content'>
-											<img src="img/test.jpg">
-											<div class="lightbox-caption"><p>Test Image</p></div>
-										</div>
-									</div>
-								</td><!--Close 2 TD-->
-							</tr>
-							<tr>
-								
-								<td><!--open 3 TD-->
-									<a data-toggle="lightbox" href="#lightbox"><img src="http://lorempixel.com/150/150/"/></a>
-									
-									<div id="lightbox" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">												
-										<div class='lightbox-header'>
-											<button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
-										</div>
-										
-										<div class='lightbox-content'>
-											<img src="img/test.jpg">
-											<div class="lightbox-caption"><p>Test Image</p></div>
-										</div>
-									</div>
-								</td><!--close 3 TD-->
-								
-								<td><!--open 4 TD-->
-									<a data-toggle="lightbox" href="#lightbox"><img src="http://lorempixel.com/150/150/"/></a>
-									
-									<div id="lightbox" class="lightbox hide fade"  tabindex="-1" role="dialog" aria-hidden="true">												
-										<div class='lightbox-header'>
-											<button type="button" class="close" data-dismiss="lightbox" aria-hidden="true">&times;</button>
-										</div>
-										
-										<div class='lightbox-content'>
-											<img src="img/test.jpg">
-											<div class="lightbox-caption"><p>Test Image</p></div>
-										</div>
-									</div>
-								</td><!--Close 4 TD-->
-								
-								
-								
-							</tr>
+					<?php								
+						$sql = $db->query('SELECT id, text ,picture,picture_HD FROM pictures_About');
+						
+						try {
+							if ($sql->execute()) {
+								$results = $sql->fetchAll(PDO::FETCH_OBJ);
+							}
+						}
+							catch(PDOException $e){
+								echo "Query Failed - content";
+						}
+						
+							
+					?>
+					<h2>Pictures</h2>
+					<p class="white-text">Examples of the water transfer process:</p>
+					<ul>
+						<?php foreach($results as $entry): ?>
+						<li class="pull-left">
+							<a href="<?php echo $entry->picture_HD; ?>" rel="prettyPhoto[pp_gal]">
+								<img src="<?php echo $entry->picture; ?>" alt="<?php echo $entry->text; ?>">										
+							</a>
+						</li>
+						<?php endforeach; ?>
+					</ul>
+					<?php unset ($Aboutresults); ?>
 
-						</tbody>
-					</table>
+
 
 				</span>
 			</div><!--end span4-->
@@ -190,6 +148,26 @@ w<!DOCTYPE html>
 		<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 		<script type="text/javascript" src="js/bootstrap.min.js"></script>		
-		<script type="text/javascript" src="js/bootstrap-lightbox.min.js"></script>
+		<script type="text/javascript" src="js/jquery.center.js"></script>	
+		<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+		
+		<script>
+		// Controller for jquery.center.js 
+			$(function () {
+				
+
+				$(".navbar h1").center({
+					vertical: false // only hoz
+				});
+				
+ 
+				$("a[rel^='prettyPhoto']").prettyPhoto({
+					allow_resize: false,
+					theme: 'dark_rounded' /* light_rounded / dark_rounded / light_square / dark_square / facebook */
+				});
+
+			
+	   		});//end script	
+		</script>
 	</body>
 </html>
